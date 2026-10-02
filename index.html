@@ -1,0 +1,1379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the website responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Website title shown in the browser tab -->
+    <title>HAZY | Rapper & Music Producer</title>
+
+    <!-- Website description for search engines -->
+    <meta
+        name="description"
+        content="Official website of HAZY, independent rapper and music producer. Explore music, beats, collaborations, and production services."
+    >
+
+    <style>
+        /* =========================================
+           1. GLOBAL SETTINGS
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #080a0a;
+            --card-bg: #111414;
+            --text: #f5f5f5;
+            --muted: #a3aaa6;
+            --accent: #39ff14;
+            --border: #252b27;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .accent {
+            color: var(--accent);
+        }
+
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+        }
+
+        /* =========================================
+           2. BUTTONS
+        ========================================= */
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #050805;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .btn-outline {
+            color: var(--accent);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #050805;
+        }
+
+        /* =========================================
+           3. NAVIGATION BAR
+        ========================================= */
+
+        header {
+            background: rgba(8, 10, 10, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.9rem;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           4. HERO SECTION
+        ========================================= */
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(57, 255, 20, 0.08),
+                    transparent 35%
+                );
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 75px 0;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 7px 13px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: 4px;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--muted);
+            margin-top: 18px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: var(--muted);
+            margin: 22px 0 30px;
+            font-size: 1.05rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        /* =========================================
+           5. FEATURED RELEASE
+        ========================================= */
+
+        .featured {
+            background: #0d100e;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .featured-label {
+            color: var(--accent);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .featured h2 {
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            margin: 12px 0;
+        }
+
+        .featured p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* =========================================
+           6. MUSIC / YOUTUBE VIDEOS
+        ========================================= */
+
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .music-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .music-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .music-card h3 {
+            margin-top: 16px;
+            font-size: 1.1rem;
+        }
+
+        .music-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+
+        /* =========================================
+           MUSIC STREAMING PLATFORMS
+        ========================================= */
+
+        .platforms {
+            background: #0d100e;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .platform-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 20px 22px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .platform-link:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .platform-link span:last-child {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* =========================================
+           7. SERVICES
+        ========================================= */
+
+        .services {
+            background: #0d100e;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            padding: 28px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: border-color 0.25s;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .service-link {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* =========================================
+           8. ABOUT HAZY
+        ========================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        /* Profile picture styling
+           Image location: Images/profilepic.jpg */
+
+        .profile-image-wrapper {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .profile-pic {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-radius: 15px;
+            border: 2px solid var(--accent);
+            background: var(--card-bg);
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 18px;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .about-tags span {
+            border: 1px solid var(--border);
+            padding: 7px 13px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+        }
+
+        /* =========================================
+           9. CONTACT SECTION
+        ========================================= */
+
+        .contact {
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(57, 255, 20, 0.06),
+                    transparent 55%
+                );
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-box {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 18px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        /* =========================================
+           10. FOOTER
+        ========================================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* =========================================
+           11. TABLET RESPONSIVE DESIGN
+        ========================================= */
+
+        @media (max-width: 900px) {
+            .featured-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-grid {
+                text-align: center;
+            }
+
+            .about-tags {
+                justify-content: center;
+            }
+
+            .profile-image-wrapper {
+                max-width: 320px;
+            }
+
+            .music-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* =========================================
+           12. MOBILE RESPONSIVE DESIGN
+        ========================================= */
+
+        @media (max-width: 650px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .navbar {
+                min-height: 68px;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            /* Mobile navigation menu */
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                padding: 22px 5%;
+                background: #0b0d0b;
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            .hero-content {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: 2px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                text-align: center;
+            }
+
+            .music-grid,
+            .services-grid,
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                gap: 28px;
+            }
+
+            .service-card {
+                padding: 22px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-links .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Respect users who prefer reduced animation */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+
+        /* =========================================
+           POLISHED PLATFORM CARDS + MOBILE NAV FIX
+        ========================================= */
+        .navbar {
+            position: relative;
+        }
+
+        .platform-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 20px;
+        }
+
+        .platform-link {
+            position: relative;
+            min-height: 96px;
+            justify-content: flex-start;
+            padding: 20px;
+            gap: 14px;
+            color: var(--text);
+            background: linear-gradient(145deg, #171c19, #101311);
+            border: 1px solid #303832;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .platform-link > span:first-child {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+            font-size: 1rem;
+        }
+
+        .platform-link > span:first-child::first-letter {
+            font-size: 1.2rem;
+        }
+
+        .platform-link > span:last-child {
+            margin-left: auto;
+            flex: 0 0 auto;
+            color: #a3aaa6;
+            transition: color .2s ease, transform .2s ease;
+        }
+
+        .platform-link:hover {
+            color: #ffffff;
+            border-color: var(--platform-color, var(--accent));
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+            transform: translateY(-4px);
+        }
+
+        .platform-link:hover > span:last-child {
+            color: var(--platform-color, var(--accent));
+            transform: translate(2px, -2px);
+        }
+
+        .platform-link.youtube { --platform-color: #ff4545; }
+        .platform-link.spotify { --platform-color: #1ed760; }
+        .platform-link.apple { --platform-color: #f66db1; }
+        .platform-link.ytmusic { --platform-color: #ff5364; }
+        .platform-link.amazon { --platform-color: #42c7e8; }
+        .platform-link.soundcloud { --platform-color: #ff963d; }
+        .platform-link.jiosaavn { --platform-color: #ff617e; }
+
+        .platform-link.youtube > span:first-child { color: #ff6666; }
+        .platform-link.spotify > span:first-child { color: #1ed760; }
+        .platform-link.apple > span:first-child { color: #f68abf; }
+        .platform-link.ytmusic > span:first-child { color: #ff6977; }
+        .platform-link.amazon > span:first-child { color: #53cce8; }
+        .platform-link.soundcloud > span:first-child { color: #ff963d; }
+        .platform-link.jiosaavn > span:first-child { color: #ff718b; }
+
+        .platform-link:hover > span:first-child { color: #ffffff; }
+
+        @media (max-width: 900px) {
+            .platform-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 68px;
+                justify-content: space-between;
+                position: relative;
+            }
+
+            .logo {
+                margin-right: auto;
+            }
+
+            .navbar nav {
+                display: contents;
+            }
+
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                flex: 0 0 44px;
+                margin-left: auto;
+                padding: 0;
+                line-height: 1;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                background: #111613;
+                color: var(--accent);
+                font-size: 1.65rem;
+                position: relative;
+                z-index: 1002;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 1px);
+                left: -5.56%;
+                right: -5.56%;
+                width: auto;
+                padding: 20px 5.56% 24px;
+                background: #0b0e0c;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 14px 24px rgba(0, 0, 0, .35);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                z-index: 1001;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 3px 0;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .platform-link {
+                min-height: 82px;
+                padding: 18px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header>
+        <div class="container navbar">
+
+            <!-- Website logo -->
+            <a href="#home" class="logo">HAZY<span>.</span></a>
+
+            <!-- Mobile menu button -->
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                ☰
+            </button>
+
+            <!-- Navigation links -->
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#music">Music</a></li>
+                    <li><a href="#platforms">Platforms</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================================
+         HERO / HOME SECTION
+    ========================================== -->
+
+    <main>
+
+
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+
+                    <span class="hero-tag">
+                        INDEPENDENT ARTIST & PRODUCER
+                    </span>
+
+                    <h1>H<span class="accent">A</span>ZY</h1>
+
+                    <h2>Rapper. Producer. Independent Artist.</h2>
+
+                    <p>
+                        Creating my own sound through Hip-Hop, Trap,
+                        and Dark UK Drill. Explore my music, discover
+                        my production, and let's create something together.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#music" class="btn btn-primary">
+                            Listen to My Music
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Work With Me
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             ABOUT HAZY SECTION
+        ========================================== -->
+
+        <section class="section" id="about">
+            <div class="container about-grid">
+
+                <!--
+                    PROFILE PICTURE:
+                    Put your image inside the Images folder.
+                    Exact path: Images/profilepic.jpg
+
+                    If your image is PNG, change .jpg to .png.
+                -->
+
+                <div class="profile-image-wrapper">
+                    <img
+                        src="Images/profilepic.png"
+                        alt="HAZY - Independent Rapper and Music Producer"
+                        class="profile-pic"
+                        loading="eager"
+                    >
+                </div>
+
+                <!-- About text -->
+                <div class="about-content">
+
+                    <h2>
+                        About <span class="accent">HAZY</span>
+                    </h2>
+
+                    <p>
+                        I'm HAZY, an independent rapper and music producer
+                        building my own identity through music.
+                    </p>
+
+                    <p>
+                        My sound explores Hip-Hop, Trap, and Dark UK Drill.
+                        As an independent artist, I'm focused on developing
+                        my skills, sharing my story, and connecting with
+                        artists who are passionate about creating music.
+                    </p>
+
+                    <p>
+                        Whether you're looking for a collaboration,
+                        a custom beat, or production support, feel free
+                        to reach out.
+                    </p>
+
+                    <!-- Music styles -->
+                    <div class="about-tags">
+                        <span>Hip-Hop</span>
+                        <span>Trap</span>
+                        <span>Drill</span>
+                        <span>Independent Music</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             FEATURED RELEASE: ROCKSTAR
+        ========================================== -->
+
+        <section class="section featured" id="featured">
+            <div class="container featured-grid">
+
+                <div>
+                    <span class="featured-label">Featured Release</span>
+
+                    <h2>FLY<span class="accent">ING</span></h2>
+
+                    <p>
+                        Check out my release, Flying. Listen to the
+                        track, explore my sound, and follow the journey
+                        of HAZY as an independent artist.
+                    </p>
+
+                    <!-- Replace this link when you release a new single -->
+                    <a
+                        href="https://youtu.be/LWv1K9cWKjU"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        Listen on YouTube
+                    </a>
+                </div>
+
+                <!-- YouTube embed for ROCKSTAR -->
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/LWv1K9cWKjU"
+                        title="HAZY - ROCKSTAR"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             MUSIC SECTION
+        ========================================== -->
+
+        <section class="section" id="music">
+            <div class="container">
+
+                <h2 class="section-title">
+                    My <span class="accent">Music</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Explore my releases, beats, and sounds.
+                    More music coming soon.
+                </p>
+
+                <div class="music-grid">
+
+                    <!-- Music Card 1: Dark UK Drill Beat -->
+                    <article class="music-card">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube-nocookie.com/embed/ytNXprGOZaM"
+                                title="HAZY - Dark UK Drill Beat"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+
+                        <h3>Dark UK Drill Beat</h3>
+                        <p>Dark production, heavy drums, and drill energy.</p>
+                    </article>
+
+
+                    <!-- Music Card 2: Instrumental -->
+                    <article class="music-card">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube-nocookie.com/embed/osdCS-DhH6k"
+                                title="HAZY - Instrumental Beat"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+
+                        <h3>Instrumental</h3>
+                        <p>Listen to another production from HAZY.</p>
+                    </article>
+
+
+                    <!-- Music Card 3: Beat Preview -->
+                    <article class="music-card">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube-nocookie.com/embed/vXOACscibJ4"
+                                title="HAZY - Beat Preview"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+
+                        <h3>Song Preview</h3>
+                        <p>Discover more of my sound and production.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- =========================================
+             LISTEN ON MUSIC PLATFORMS
+        ========================================== -->
+
+        <section class="section platforms" id="platforms">
+            <div class="container">
+                <h2 class="section-title">Listen <span class="accent">Everywhere</span></h2>
+                <p class="section-subtitle">
+                    Find HAZY and explore music on your favourite streaming platform.
+                </p>
+
+                <div class="platform-grid">
+                    <a class="platform-link youtube" href="https://www.youtube.com/@hazyofficials" target="_blank" rel="noopener noreferrer">
+                        <span>▶ YouTube</span><span>↗</span>
+                    </a>
+                    <a class="platform-link spotify" href="https://open.spotify.com/search/HAZY" target="_blank" rel="noopener noreferrer">
+                        <span>♫ Spotify</span><span>↗</span>
+                    </a>
+                    <a class="platform-link apple" href="https://music.apple.com/search?term=HAZY" target="_blank" rel="noopener noreferrer">
+                        <span>♪ Apple Music</span><span>↗</span>
+                    </a>
+                    <a class="platform-link ytmusic" href="https://music.youtube.com/search?q=HAZY" target="_blank" rel="noopener noreferrer">
+                        <span>♪ YouTube Music</span><span>↗</span>
+                    </a>
+                    <a class="platform-link amazon" href="https://music.amazon.com/search/HAZY" target="_blank" rel="noopener noreferrer">
+                        <span>♫ Amazon Music</span><span>↗</span>
+                    </a>
+                    <a class="platform-link soundcloud" href="https://soundcloud.com/search?q=HAZY" target="_blank" rel="noopener noreferrer">
+                        <span>☁ SoundCloud</span><span>↗</span>
+                    </a>
+                    <a class="platform-link jiosaavn" href="https://www.jiosaavn.com/search/HAZY" target="_blank" rel="noopener noreferrer">
+                        <span>♪ JioSaavn</span><span>↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             SERVICES SECTION
+        ========================================== -->
+
+        <section class="section services" id="services">
+            <div class="container">
+
+                <h2 class="section-title">
+                    What I <span class="accent">Do</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Let's work together and bring your musical ideas
+                    to life.
+                </p>
+
+                <div class="services-grid">
+
+                    <!-- Service 1: Custom Beats -->
+                    <article class="service-card">
+                        <div class="service-icon">🎧</div>
+
+                        <h3>Custom Beats</h3>
+
+                        <p>
+                            Original beats tailored to your sound,
+                            flow, and artistic vision. Hip-Hop, Trap,
+                            and Dark Drill production.
+                        </p>
+
+                        <a
+                            class="service-link"
+                            href="https://www.instagram.com/hazyofficials/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Contact for pricing →
+                        </a>
+                    </article>
+
+
+                    <!-- Service 2: Vocal Mixing -->
+                    <article class="service-card">
+                        <div class="service-icon">🎙️</div>
+
+                        <h3>Vocal Mixing</h3>
+
+                        <p>
+                            Work on vocal clarity, balance, and the
+                            overall sound of your rap recordings.
+                        </p>
+
+                        <a
+                            class="service-link"
+                            href="https://www.instagram.com/hazyofficials/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Contact for pricing →
+                        </a>
+                    </article>
+
+
+                    <!-- Service 3: Mix and Master -->
+                    <article class="service-card">
+                        <div class="service-icon">🎚️</div>
+
+                        <h3>Mix &amp; Master</h3>
+
+                        <p>
+                            Prepare your track for release with a
+                            balanced mix and a polished final sound.
+                        </p>
+
+                        <a
+                            class="service-link"
+                            href="https://www.instagram.com/hazyofficials/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Contact for pricing →
+                        </a>
+                    </article>
+
+
+                    <!-- Service 4: Rap Features -->
+                    <article class="service-card">
+                        <div class="service-icon">🔥</div>
+
+                        <h3>Rap Features &amp; Hooks</h3>
+
+                        <p>
+                            Interested in a verse, hook, or creative
+                            collaboration? Let's discuss your project.
+                        </p>
+
+                        <a
+                            class="service-link"
+                            href="https://www.instagram.com/hazyofficials/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Contact for collaborations →
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             CONTACT SECTION
+        ========================================== -->
+
+        <section class="section contact" id="contact">
+            <div class="container">
+
+                <div class="contact-box">
+
+                    <h2>
+                        Let's Make <span class="accent">Music</span>
+                    </h2>
+
+                    <p>
+                        Have a project in mind? Want to collaborate,
+                        work on a beat, or discuss a music project?
+                        Get in touch with HAZY.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <!-- Email contact -->
+                        <a
+                            href="mailto:getofficialhazy@gmail.com?subject=Music%20Collaboration%20with%20HAZY"
+                            class="btn btn-primary"
+                        >
+                            Email Me
+                        </a>
+
+                        <!-- Instagram contact -->
+                        <a
+                            href="https://www.instagram.com/hazyofficials/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline"
+                        >
+                            Instagram DM
+                        </a>
+
+                        <!-- WhatsApp contact -->
+                        <a
+                            href="https://wa.me/918470964257?text=Hey%20HAZY%2C%20I%20want%20to%20discuss%20a%20music%20project."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline"
+                        >
+                            WhatsApp
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+        <div class="container footer-content">
+
+            <!-- Copyright year updates automatically -->
+            <p>
+                © <span id="year"></span> HAZY. All rights reserved.
+            </p>
+
+            <!-- Social media links -->
+            <div class="social-links">
+
+                <a
+                    href="https://www.instagram.com/hazyofficials/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="https://youtube.com/@hazyofficials"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+                <a href="mailto:getofficialhazy@gmail.com">
+                    Email
+                </a>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         Mobile navigation and automatic copyright year
+    ========================================== -->
+
+    <script>
+        // Get the mobile menu button and navigation list
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        // Open or close the mobile menu when the button is clicked
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+
+            // Update accessibility state
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+            // Change the menu icon
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close the mobile menu after clicking any navigation link
+        document.querySelectorAll("#navLinks a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        // Automatically show the current year in the footer
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
